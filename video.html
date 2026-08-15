@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>วิดีโอของเรา ♡</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  margin: 0;
+
+  min-height: 100vh;
+
+  font-family:
+    Arial,
+    "Noto Sans Thai",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #fffaf8,
+      #f9dfdc,
+      #f3c9c5
+    );
+
+  color: #59372e;
+
+  overflow-x: hidden;
+
+}
+
+
+/* หัวใจลอย */
+
+.hearts {
+
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+}
+
+
+.heart {
+
+  position: absolute;
+
+  bottom: -60px;
+
+  color: #e79b98;
+
+  opacity: 0;
+
+  animation:
+    floatHeart
+    linear infinite;
+
+}
+
+
+@keyframes floatHeart {
+
+  0% {
+
+    transform:
+      translateY(0)
+      rotate(0deg)
+      scale(.7);
+
+    opacity: 0;
+
+  }
+
+  15% {
+    opacity: .65;
+  }
+
+  70% {
+    opacity: .4;
+  }
+
+  100% {
+
+    transform:
+      translateY(-115vh)
+      rotate(25deg)
+      scale(1.2);
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* หน้า */
+
+.page {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 25px;
+
+  position: relative;
+
+  z-index: 2;
+
+}
+
+
+/* หัวข้อ */
+
+.title {
+
+  text-align: center;
+
+  margin-bottom: 25px;
+
+}
+
+
+.title .top-heart {
+
+  font-size: 38px;
+
+  color: #d98f88;
+
+}
+
+
+.title h1 {
+
+  margin: 5px 0;
+
+  font-family: Georgia, serif;
+
+  font-style: italic;
+
+  font-size:
+    clamp(38px, 9vw, 55px);
+
+}
+
+
+.title p {
+
+  margin: 0;
+
+  color: #8b655b;
+
+}
+
+
+/* วิดีโอ */
+
+.video-box {
+
+  width: min(90vw, 650px);
+
+  background: white;
+
+  padding: 10px;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 20px 50px
+    rgba(90,50,40,.2);
+
+}
+
+
+.video-box video {
+
+  width: 100%;
+
+  display: block;
+
+  border-radius: 18px;
+
+  background: #000;
+
+}
+
+
+/* ปุ่มกลับ */
+
+.back {
+
+  margin-top: 25px;
+
+  padding: 14px 24px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,.8);
+
+  color: #59372e;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 8px 20px
+    rgba(90,50,40,.12);
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- เพลงแบ็กกราวด์ -->
+
+<audio id="bgMusic" loop>
+
+  <source
+    src="our-song.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<!-- หัวใจ -->
+
+<div class="hearts">
+
+  <div class="heart"
+       style="left:5%;font-size:25px;animation-duration:9s;">
+    ♡
+  </div>
+
+  <div class="heart"
+       style="left:20%;font-size:35px;animation-duration:12s;animation-delay:2s;">
+    ♥
+  </div>
+
+  <div class="heart"
+       style="left:40%;font-size:20px;animation-duration:10s;animation-delay:4s;">
+    ♡
+  </div>
+
+  <div class="heart"
+       style="left:60%;font-size:32px;animation-duration:13s;animation-delay:1s;">
+    ♥
+  </div>
+
+  <div class="heart"
+       style="left:80%;font-size:24px;animation-duration:11s;animation-delay:3s;">
+    ♡
+  </div>
+
+</div>
+
+
+<!-- เนื้อหา -->
+
+<div class="page">
+
+
+  <div class="title">
+
+    <div class="top-heart">
+      ♡
+    </div>
+
+    <h1>
+      วิดีโอของเรา
+    </h1>
+
+    <p>
+      เก็บช่วงเวลาของเราไว้ตรงนี้
+    </p>
+
+  </div>
+
+
+  <!-- วิดีโอ -->
+
+  <div class="video-box">
+
+    <video
+      id="ourVideo"
+      controls
+      playsinline
+      preload="metadata">
+
+      <source
+        src="IMG_9679.mov"
+        type="video/mp4">
+
+      เบราว์เซอร์ไม่รองรับวิดีโอนี้
+
+    </video>
+
+  </div>
+
+
+  <button
+    onclick="startMusic()"
+    style="
+      margin-top:20px;
+      border:none;
+      border-radius:30px;
+      padding:13px 22px;
+      background:#efbbb1;
+      color:#59372e;
+      font-weight:bold;
+      font-size:15px;
+    ">
+
+    ♫ เปิดเพลง
+
+  </button>
+
+
+  <a
+    class="back"
+    href="index.html">
+
+    ♡ กลับไปหน้าหลัก
+
+  </a>
+
+
+</div>
+
+
+<script>
+
+const music =
+  document.getElementById("bgMusic");
+
+const video =
+  document.getElementById("ourVideo");
+
+
+function startMusic() {
+
+  music.play();
+
+}
+
+
+/* 
+   เมื่อกดเล่นวิดีโอ
+   ให้เพลงเริ่มเล่นด้วย
+*/
+
+video.addEventListener(
+  "play",
+  function() {
+
+    music.play().catch(
+      function() {}
+    );
+
+  }
+);
+
+
+/*
+   เมื่อวิดีโอจบ
+   เพลงยังวนต่อ
+*/
+
+video.addEventListener(
+  "ended",
+  function() {
+
+    music.play();
+
+  }
+);
+
+</script>
+
+
+</body>
+
+</html>
