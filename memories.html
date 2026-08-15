@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>ความทรงจำของเรา ♡</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  margin: 0;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  font-family:
+    Arial,
+    "Noto Sans Thai",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #fffaf8 0%,
+      #f9dfdc 50%,
+      #f3c9c5 100%
+    );
+
+  color: #59372e;
+
+}
+
+
+/* -------------------------
+   พื้นหลังหัวใจ
+------------------------- */
+
+.hearts {
+
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+}
+
+
+.heart {
+
+  position: absolute;
+
+  bottom: -60px;
+
+  color: #e79b98;
+
+  opacity: 0;
+
+  animation:
+    floatHeart
+    linear infinite;
+
+}
+
+
+@keyframes floatHeart {
+
+  0% {
+
+    transform:
+      translateY(0)
+      rotate(0deg)
+      scale(0.7);
+
+    opacity: 0;
+
+  }
+
+  15% {
+
+    opacity: 0.65;
+
+  }
+
+  70% {
+
+    opacity: 0.4;
+
+  }
+
+  100% {
+
+    transform:
+      translateY(-115vh)
+      rotate(25deg)
+      scale(1.2);
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* -------------------------
+   หน้า
+------------------------- */
+
+.page {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  position: relative;
+
+  z-index: 2;
+
+  padding: 25px;
+
+}
+
+
+.title {
+
+  text-align: center;
+
+  margin-bottom: 20px;
+
+}
+
+
+.title .heart {
+
+  font-size: 38px;
+
+  color: #d98f88;
+
+}
+
+
+.title h1 {
+
+  margin: 5px 0;
+
+  font-family: Georgia, serif;
+
+  font-style: italic;
+
+  font-size:
+    clamp(35px, 9vw, 55px);
+
+}
+
+
+.title p {
+
+  margin: 0;
+
+  color: #8b655b;
+
+}
+
+
+/* -------------------------
+   รูปภาพ
+------------------------- */
+
+.gallery {
+
+  width: 280px;
+
+  height: 350px;
+
+  position: relative;
+
+  perspective: 1000px;
+
+}
+
+
+.photo {
+
+  position: absolute;
+
+  inset: 0;
+
+  background: white;
+
+  padding: 10px 10px 35px;
+
+  border-radius: 6px;
+
+  box-shadow:
+    0 15px 40px
+    rgba(90, 50, 40, 0.22);
+
+  animation:
+    photoLoop
+    32s infinite;
+
+  opacity: 0;
+
+}
+
+
+.photo img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+}
+
+
+/* รูปแต่ละใบ */
+
+.photo:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.photo:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.photo:nth-child(3) {
+  animation-delay: 8s;
+}
+
+.photo:nth-child(4) {
+  animation-delay: 12s;
+}
+
+.photo:nth-child(5) {
+  animation-delay: 16s;
+}
+
+.photo:nth-child(6) {
+  animation-delay: 20s;
+}
+
+.photo:nth-child(7) {
+  animation-delay: 24s;
+}
+
+.photo:nth-child(8) {
+  animation-delay: 28s;
+}
+
+
+@keyframes photoLoop {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      scale(0.75)
+      rotate(-12deg);
+
+  }
+
+  5% {
+
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(-4deg);
+
+  }
+
+  10% {
+
+    opacity: 1;
+
+    transform:
+      scale(1.03)
+      rotate(4deg);
+
+  }
+
+  15% {
+
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(-2deg);
+
+  }
+
+  20% {
+
+    opacity: 0;
+
+    transform:
+      scale(0.9)
+      rotate(10deg);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+      scale(0.75)
+      rotate(-12deg);
+
+  }
+
+}
+
+
+/* -------------------------
+   ปุ่มกลับ
+------------------------- */
+
+.back {
+
+  margin-top: 28px;
+
+  padding: 14px 24px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.75);
+
+  color: #59372e;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 8px 20px
+    rgba(90,50,40,0.12);
+
+  transition: 0.2s;
+
+}
+
+
+.back:hover {
+
+  transform:
+    translateY(-3px);
+
+}
+
+
+/* มือถือ */
+
+@media (max-width: 500px) {
+
+  .gallery {
+
+    width: 245px;
+
+    height: 310px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- หัวใจลอย -->
+
+<div class="hearts">
+
+  <div class="heart"
+       style="left:5%;font-size:22px;animation-duration:9s;">
+       ♡
+  </div>
+
+  <div class="heart"
+       style="left:15%;font-size:35px;animation-duration:12s;animation-delay:2s;">
+       ♥
+  </div>
+
+  <div class="heart"
+       style="left:28%;font-size:18px;animation-duration:10s;animation-delay:5s;">
+       ♡
+  </div>
+
+  <div class="heart"
+       style="left:40%;font-size:30px;animation-duration:14s;animation-delay:1s;">
+       ♥
+  </div>
+
+  <div class="heart"
+       style="left:55%;font-size:20px;animation-duration:11s;animation-delay:4s;">
+       ♡
+  </div>
+
+  <div class="heart"
+       style="left:68%;font-size:38px;animation-duration:13s;animation-delay:3s;">
+       ♥
+  </div>
+
+  <div class="heart"
+       style="left:80%;font-size:24px;animation-duration:10s;animation-delay:6s;">
+       ♡
+  </div>
+
+  <div class="heart"
+       style="left:92%;font-size:32px;animation-duration:15s;animation-delay:2s;">
+       ♥
+  </div>
+
+</div>
+
+
+<!-- เนื้อหา -->
+
+<div class="page">
+
+
+  <div class="title">
+
+    <div class="heart">
+      ♡
+    </div>
+
+    <h1>
+      ความทรงจำของเรา
+    </h1>
+
+    <p>
+      ทุกภาพมีเรื่องราวของเราอยู่ในนั้น
+    </p>
+
+  </div>
+
+
+  <!-- รูป -->
+
+  <div class="gallery">
+
+
+    <div class="photo">
+
+      <img
+        src="IMG_9363.jpeg"
+        alt="ความทรงจำของเรา">
+
+    </div>
+
+
+    <div class="photo">
+
+      <img
+        src="IMG_9367.jpeg"
+        alt="ความทรงจำของเรา">
+
+    </div>
+
+
+    <div class="photo">
+
+      <img
+        src="photo3.jpeg"
+        alt="ความทรงจำของเรา">
+
+    </div>
+
+
+    <div class="photo">
+
+      <img
+        src="photo4.jpeg"
+        alt="ความทรงจำของเรา">
+
+    </div>
+
+
+    <div class="photo">
+
+      <img
+        src="photo5.jpeg"
+        alt="ความทรงจำของเรา">
+
+    </div>
+
+
+    <div class="photo">
+
+      <img
+        src="photo6.jpeg"
+        alt="ความทรงจำของเรา">
+
+    </div>
+
+
+    <div class="photo">
+
+      <img
+        src="photo7.jpeg"
+        alt="ความทรงจำของเรา">
+
+    </div>
+
+
+    <div class="photo">
+
+      <img
+        src="photo8.jpeg"
+        alt="ความทรงจำของเรา">
+
+    </div>
+
+
+  </div>
+
+
+  <a
+    class="back"
+    href="index.html">
+
+    ♡ กลับไปหน้าหลัก
+
+  </a>
+
+
+</div>
+
+
+</body>
+</html>
