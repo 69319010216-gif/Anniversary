@@ -42,7 +42,9 @@ body {
 }
 
 
-/* หัวใจลอย */
+/* =========================
+   หัวใจลอย
+========================= */
 
 .hearts {
 
@@ -109,7 +111,9 @@ body {
 }
 
 
-/* หน้า */
+/* =========================
+   หน้า
+========================= */
 
 .page {
 
@@ -132,7 +136,9 @@ body {
 }
 
 
-/* หัวข้อ */
+/* =========================
+   หัวข้อ
+========================= */
 
 .title {
 
@@ -175,7 +181,9 @@ body {
 }
 
 
-/* วิดีโอ */
+/* =========================
+   กล่องวิดีโอ
+========================= */
 
 .video-box {
 
@@ -207,7 +215,26 @@ body {
 }
 
 
-/* ปุ่มกลับ */
+/* =========================
+   ข้อความใต้คลิป
+========================= */
+
+.hint {
+
+  margin-top: 18px;
+
+  color: #8b655b;
+
+  font-size: 14px;
+
+  text-align: center;
+
+}
+
+
+/* =========================
+   ปุ่มกลับ
+========================= */
 
 .back {
 
@@ -230,6 +257,37 @@ body {
     0 8px 20px
     rgba(90,50,40,.12);
 
+  transition: .2s;
+
+}
+
+
+.back:hover {
+
+  transform:
+    translateY(-3px);
+
+}
+
+
+/* =========================
+   มือถือ
+========================= */
+
+@media (max-width: 500px) {
+
+  .page {
+
+    padding: 20px;
+
+  }
+
+  .video-box {
+
+    width: 95vw;
+
+  }
+
 }
 
 </style>
@@ -240,9 +298,13 @@ body {
 <body>
 
 
-<!-- เพลงแบ็กกราวด์ -->
+<!-- =========================
+     เพลงแบ็กกราวด์
+========================= -->
 
-<audio id="bgMusic" loop>
+<audio
+  id="bgMusic"
+  loop>
 
   <source
     src="BlackHeart - ฟโรโมน Ft.2TFLOW (BONUS TRACK) [55]_[cut_49sec].mp3"
@@ -251,63 +313,125 @@ body {
 </audio>
 
 
-<!-- หัวใจ -->
+<!-- =========================
+     หัวใจลอย
+========================= -->
 
 <div class="hearts">
 
-  <div class="heart"
-       style="left:5%;font-size:25px;animation-duration:9s;">
+
+  <div
+    class="heart"
+    style="
+      left:5%;
+      font-size:25px;
+      animation-duration:9s;
+    ">
+
     ♡
+
   </div>
 
-  <div class="heart"
-       style="left:20%;font-size:35px;animation-duration:12s;animation-delay:2s;">
+
+  <div
+    class="heart"
+    style="
+      left:20%;
+      font-size:35px;
+      animation-duration:12s;
+      animation-delay:2s;
+    ">
+
     ♥
+
   </div>
 
-  <div class="heart"
-       style="left:40%;font-size:20px;animation-duration:10s;animation-delay:4s;">
+
+  <div
+    class="heart"
+    style="
+      left:40%;
+      font-size:20px;
+      animation-duration:10s;
+      animation-delay:4s;
+    ">
+
     ♡
+
   </div>
 
-  <div class="heart"
-       style="left:60%;font-size:32px;animation-duration:13s;animation-delay:1s;">
+
+  <div
+    class="heart"
+    style="
+      left:60%;
+      font-size:32px;
+      animation-duration:13s;
+      animation-delay:1s;
+    ">
+
     ♥
+
   </div>
 
-  <div class="heart"
-       style="left:80%;font-size:24px;animation-duration:11s;animation-delay:3s;">
+
+  <div
+    class="heart"
+    style="
+      left:80%;
+      font-size:24px;
+      animation-duration:11s;
+      animation-delay:3s;
+    ">
+
     ♡
+
   </div>
+
 
 </div>
 
 
-<!-- เนื้อหา -->
+<!-- =========================
+     เนื้อหา
+========================= -->
 
 <div class="page">
 
 
   <div class="title">
 
+
     <div class="top-heart">
+
       ♡
+
     </div>
 
+
     <h1>
+
       วิดีโอของเรา
+
     </h1>
 
+
     <p>
+
       เก็บช่วงเวลาของเราไว้ตรงนี้
+
     </p>
+
 
   </div>
 
 
-  <!-- วิดีโอ -->
+  <!-- =========================
+       วิดีโอของเรา
+  ========================= -->
 
   <div class="video-box">
+
 
     <video
       id="ourVideo"
@@ -315,34 +439,31 @@ body {
       playsinline
       preload="metadata">
 
+
       <source
         src="IMG_9679.mov"
-        type="video/mp4">
+        type="video/quicktime">
+
 
       เบราว์เซอร์ไม่รองรับวิดีโอนี้
 
+
     </video>
+
 
   </div>
 
 
-  <button
-    onclick="startMusic()"
-    style="
-      margin-top:20px;
-      border:none;
-      border-radius:30px;
-      padding:13px 22px;
-      background:#efbbb1;
-      color:#59372e;
-      font-weight:bold;
-      font-size:15px;
-    ">
+  <div class="hint">
 
-    ♫ เปิดเพลง
+    ♡ กด ▶ เพื่อดูคลิปของเราและฟังเพลงไปพร้อมกัน ♡
 
-  </button>
+  </div>
 
+
+  <!-- =========================
+       กลับหน้าหลัก
+  ========================= -->
 
   <a
     class="back"
@@ -356,25 +477,28 @@ body {
 </div>
 
 
+<!-- =========================
+     ระบบวิดีโอ + เพลง
+========================= -->
+
 <script>
 
-const music =
-  document.getElementById("bgMusic");
 
 const video =
-  document.getElementById("ourVideo");
+  document.getElementById(
+    "ourVideo"
+  );
 
 
-function startMusic() {
+const music =
+  document.getElementById(
+    "bgMusic"
+  );
 
-  music.play();
 
-}
-
-
-/* 
-   เมื่อกดเล่นวิดีโอ
-   ให้เพลงเริ่มเล่นด้วย
+/*
+  กดเล่นวิดีโอ
+  → เพลงเริ่มพร้อมกัน
 */
 
 video.addEventListener(
@@ -382,7 +506,14 @@ video.addEventListener(
   function() {
 
     music.play().catch(
-      function() {}
+      function(error) {
+
+        console.log(
+          "ไม่สามารถเล่นเพลงได้",
+          error
+        );
+
+      }
     );
 
   }
@@ -390,18 +521,37 @@ video.addEventListener(
 
 
 /*
-   เมื่อวิดีโอจบ
-   เพลงยังวนต่อ
+  กดหยุดวิดีโอ
+  → เพลงหยุด
+*/
+
+video.addEventListener(
+  "pause",
+  function() {
+
+    music.pause();
+
+  }
+);
+
+
+/*
+  วิดีโอจบ
+  → เพลงหยุด
+  → กลับไปต้นเพลง
 */
 
 video.addEventListener(
   "ended",
   function() {
 
-    music.play();
+    music.pause();
+
+    music.currentTime = 0;
 
   }
 );
+
 
 </script>
 
