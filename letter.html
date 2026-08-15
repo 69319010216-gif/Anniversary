@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>จดหมายถึงเธอ ♡</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  margin: 0;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  font-family:
+    Arial,
+    "Noto Sans Thai",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #fffaf8 0%,
+      #f9dfdc 50%,
+      #f3c9c5 100%
+    );
+
+  color: #59372e;
+
+}
+
+
+/* =========================
+   หัวใจพื้นหลัง
+========================= */
+
+.hearts {
+
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+}
+
+
+.heart {
+
+  position: absolute;
+
+  bottom: -60px;
+
+  color: #e79b98;
+
+  opacity: 0;
+
+  animation:
+    floatHeart
+    linear infinite;
+
+}
+
+
+@keyframes floatHeart {
+
+  0% {
+
+    transform:
+      translateY(0)
+      rotate(0deg)
+      scale(.7);
+
+    opacity: 0;
+
+  }
+
+  15% {
+
+    opacity: .55;
+
+  }
+
+  70% {
+
+    opacity: .35;
+
+  }
+
+  100% {
+
+    transform:
+      translateY(-115vh)
+      rotate(25deg)
+      scale(1.2);
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* =========================
+   หน้า
+========================= */
+
+.page {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  position: relative;
+
+  z-index: 2;
+
+}
+
+
+/* =========================
+   หัวข้อ
+========================= */
+
+.title {
+
+  text-align: center;
+
+  margin-bottom: 25px;
+
+}
+
+
+.title .heart {
+
+  font-size: 38px;
+
+  color: #d98f88;
+
+}
+
+
+.title h1 {
+
+  margin: 5px 0;
+
+  font-family: Georgia, serif;
+
+  font-style: italic;
+
+  font-size:
+    clamp(38px, 9vw, 55px);
+
+}
+
+
+.title p {
+
+  margin: 0;
+
+  color: #8b655b;
+
+}
+
+
+/* =========================
+   พื้นที่ซอง
+========================= */
+
+.envelope-area {
+
+  position: relative;
+
+  width: 340px;
+
+  height: 250px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+/* =========================
+   ซองจดหมาย
+========================= */
+
+.envelope {
+
+  position: relative;
+
+  width: 300px;
+
+  height: 190px;
+
+  cursor: pointer;
+
+  filter:
+    drop-shadow(
+      0 18px 25px
+      rgba(90,50,40,.18)
+    );
+
+  transition: .3s;
+
+}
+
+
+.envelope:hover {
+
+  transform:
+    translateY(-5px);
+
+}
+
+
+/* ตัวซอง */
+
+.envelope-body {
+
+  position: absolute;
+
+  inset: 0;
+
+  background: #eab1a9;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+}
+
+
+/* กระดาษด้านใน */
+
+.letter {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 8px;
+
+  transform:
+    translateX(-50%)
+    translateY(20px);
+
+  width: 265px;
+
+  min-height: 230px;
+
+  background: #fffaf5;
+
+  border-radius: 5px;
+
+  padding: 25px 22px;
+
+  box-shadow:
+    0 10px 25px
+    rgba(90,50,40,.15);
+
+  opacity: 0;
+
+  z-index: 2;
+
+  transition:
+    transform 1s ease,
+    opacity .7s ease;
+
+}
+
+
+/* จดหมายขยับเบา ๆ */
+
+.letter.opened {
+
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(-135px);
+
+  animation:
+    letterFloat
+    3s ease-in-out
+    infinite;
+
+}
+
+
+@keyframes letterFloat {
+
+  0% {
+
+    transform:
+      translateX(-50%)
+      translateY(-135px)
+      rotate(-1deg);
+
+  }
+
+  50% {
+
+    transform:
+      translateX(-50%)
+      translateY(-140px)
+      rotate(1deg);
+
+  }
+
+  100% {
+
+    transform:
+      translateX(-50%)
+      translateY(-135px)
+      rotate(-1deg);
+
+  }
+
+}
+
+
+/* ข้อความ */
+
+.letter h2 {
+
+  margin: 0 0 15px;
+
+  font-family: Georgia, serif;
+
+  font-style: italic;
+
+  color: #c97972;
+
+}
+
+
+.letter p {
+
+  margin: 8px 0;
+
+  line-height: 1.8;
+
+  font-size: 14px;
+
+}
+
+
+/* สามเหลี่ยมหน้าซอง */
+
+.flap {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 0;
+
+  height: 0;
+
+  border-left:
+    150px solid transparent;
+
+  border-right:
+    150px solid transparent;
+
+  border-top:
+    100px solid #d98f88;
+
+  transform-origin: top center;
+
+  z-index: 5;
+
+  transition:
+    transform .8s ease;
+
+}
+
+
+/* เปิดฝาซอง */
+
+.envelope.open .flap {
+
+  transform:
+    rotateX(180deg);
+
+  z-index: 1;
+
+}
+
+
+/* หัวใจตรงกลาง */
+
+.seal {
+
+  position: absolute;
+
+  top: 76px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 6;
+
+  width: 55px;
+
+  height: 55px;
+
+  border-radius: 50%;
+
+  background: #fff4f1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #d47770;
+
+  font-size: 28px;
+
+  box-shadow:
+    0 5px 15px
+    rgba(90,50,40,.15);
+
+  transition:
+    opacity .4s;
+
+}
+
+
+.envelope.open .seal {
+
+  opacity: 0;
+
+}
+
+
+/* =========================
+   ปุ่ม
+========================= */
+
+.open-text {
+
+  margin-top: 20px;
+
+  color: #8b655b;
+
+  font-size: 14px;
+
+}
+
+
+.back {
+
+  margin-top: 25px;
+
+  padding:
+    14px 24px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,.8);
+
+  color: #59372e;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 8px 20px
+    rgba(90,50,40,.12);
+
+}
+
+
+/* =========================
+   เอฟเฟกต์หัวใจตอนเปิด
+========================= */
+
+.pop-heart {
+
+  position: fixed;
+
+  left: 50%;
+
+  top: 50%;
+
+  pointer-events: none;
+
+  z-index: 20;
+
+  font-size: 25px;
+
+  animation:
+    popHeart
+    1.8s ease-out
+    forwards;
+
+}
+
+
+@keyframes popHeart {
+
+  0% {
+
+    transform:
+      translate(-50%,-50%)
+      scale(.3);
+
+    opacity: 0;
+
+  }
+
+  20% {
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    transform:
+      translate(
+        calc(-50% + var(--x)),
+        calc(-50% + var(--y))
+      )
+      scale(1.4);
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* =========================
+   มือถือ
+========================= */
+
+@media (max-width: 500px) {
+
+  .envelope-area {
+
+    width: 320px;
+
+  }
+
+  .envelope {
+
+    width: 280px;
+
+    height: 175px;
+
+  }
+
+  .flap {
+
+    border-left-width:
+      140px;
+
+    border-right-width:
+      140px;
+
+    border-top-width:
+      92px;
+
+  }
+
+  .letter {
+
+    width: 245px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     หัวใจลอยพื้นหลัง
+========================= -->
+
+<div class="hearts">
+
+
+  <div class="heart"
+       style="left:5%;font-size:25px;animation-duration:9s;">
+    ♡
+  </div>
+
+
+  <div class="heart"
+       style="left:15%;font-size:35px;animation-duration:12s;animation-delay:2s;">
+    ♥
+  </div>
+
+
+  <div class="heart"
+       style="left:28%;font-size:18px;animation-duration:10s;animation-delay:5s;">
+    ♡
+  </div>
+
+
+  <div class="heart"
+       style="left:42%;font-size:30px;animation-duration:14s;animation-delay:1s;">
+    ♥
+  </div>
+
+
+  <div class="heart"
+       style="left:55%;font-size:20px;animation-duration:11s;animation-delay:4s;">
+    ♡
+  </div>
+
+
+  <div class="heart"
+       style="left:68%;font-size:38px;animation-duration:13s;animation-delay:3s;">
+    ♥
+  </div>
+
+
+  <div class="heart"
+       style="left:80%;font-size:24px;animation-duration:10s;animation-delay:6s;">
+    ♡
+  </div>
+
+
+  <div class="heart"
+       style="left:92%;font-size:32px;animation-duration:15s;animation-delay:2s;">
+    ♥
+  </div>
+
+
+</div>
+
+
+<!-- =========================
+     หน้า
+========================= -->
+
+<div class="page">
+
+
+  <div class="title">
+
+
+    <div class="heart">
+
+      ♡
+
+    </div>
+
+
+    <h1>
+
+      จดหมายถึงเธอ
+
+    </h1>
+
+
+    <p>
+
+      มีบางอย่างที่อยากบอกเธอ ♡
+
+    </p>
+
+
+  </div>
+
+
+  <!-- =========================
+       ซองจดหมาย
+  ========================= -->
+
+  <div class="envelope-area">
+
+
+    <div
+      class="envelope"
+      id="envelope"
+      onclick="openLetter()">
+
+
+      <!-- จดหมาย -->
+
+      <div
+        class="letter"
+        id="letter">
+
+
+        <h2>
+
+          ถึงพุ่กันเเฟนคนจ๋วยของเก็ต ♡
+
+        </h2>
+
+
+        <p>
+
+          สองเดือนเเบ้ววน้ะคะคนเก่งงของเก็ต ผ้มดีจายยม้ากมากมากมากเบยยน้ะคะที่เรายางอยู่ด้วยกันน
+          ดีจายที่เรายางมีกันนจนทุกวันนิ้ ้ ้้ ้ ้  ้ 
+
+        </p>
+
+
+        <p>
+
+          ขอบคุนที่คุนยางอยู่กับผ้มม ขอบคุนที่ยางงรักรักกผ้มม ผ้มอยากกจะขอโทดดคุน
+          สำหรับทู้กทู้กเรื่องงเบยน้ะคะะ ทิ้ ้ ้ ้ ้ทามห้ายยคุนต้องงเสียจายย หรืออผิดหวังง
+          ขอโทดดที่เก็ตทำตัวไม่น่ารักในบางครั้งง ขอโทดดจิงจิบน้ะคะ เเต่เก็ตรักเเฟนม้ากกมากมากมากจิงจิง
+          ม่ายเคยยรักรักเเบ้ววก็รู้สึกกับใคใคเท่าเเฟนมาก่อนเบยค่ะะ เก็ตพุดด้ายเต้มเต้มปากกว่าเก็ตรักเเฟนทิ้ ้ ้ สุดดในหัวใจจ
+          ห้ายเเฟนปายเบยเเบบม่ายจำกัดดด ผ้มม่ายต้อวการอารายเเบ้วว
+
+        </p>
+
+
+        <p>
+
+          ขอเเค่ผ้มมีคุนนเเบบนิ้ ้้ ้ ้ ด้ายยอยู่ข้างขัาง ด้ายโอบกอด ด้ายยดุ ุ ุ เเลลคุนเเบบนิ้ ้ ้ ้ ปายยนานนานนเบยยน้ะคะ 
+          อารายทิ้ ้ ้ เราม่ายเข้าจายยกันน ขอห้ายเราคุยคุยกันน้ะคะ ผ้มพร้อมมทิ้ ้้  ้จาปรับปรับเเบ้วก็เเก้ไขทู้กทู้กอย่างปายพ้อมพ้อมคุนน้ะคะ
+          เพราะผ้มอยากกมีคุนปายตลอดดเบยยย ผ้มรักคุนน้ะคะะ ร้ากกม้ากกมากกมากมากกเบยย ร้ากกทิ้้ ้ ้ สู้ดดเบยยค่ะะ สุขสันวันครบรอบน้ะคะที่รัก
+          เดี๋ยวห้ายฉองน้ามน้ะคะ p
+
+        </p>
+
+
+        <p>
+
+          พี่ตุ้ยรักพุ่กันนทิ้ ้ ้ สุดเบยยน้ะคะะะ ♡
+
+        </p>
+
+
+      </div>
+
+
+      <!-- ตัวซอง -->
+
+      <div class="envelope-body"></div>
+
+
+      <!-- ฝาซอง -->
+
+      <div class="flap"></div>
+
+
+      <!-- ตราหัวใจ -->
+
+      <div class="seal">
+
+        ♥
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+  <div class="open-text">
+
+    ♡ กดที่ซองเพื่อเปิดจดหมาย ♡
+
+  </div>
+
+
+  <a
+    class="back"
+    href="index.html">
+
+    ♡ กลับไปหน้าหลัก
+
+  </a>
+
+
+</div>
+
+
+<script>
+
+
+let opened = false;
+
+
+function openLetter() {
+
+
+  const envelope =
+    document.getElementById(
+      "envelope"
+    );
+
+
+  const letter =
+    document.getElementById(
+      "letter"
+    );
+
+
+  if (opened) {
+
+    return;
+
+  }
+
+
+  opened = true;
+
+
+  envelope.classList.add(
+    "open"
+  );
+
+
+  setTimeout(
+    function() {
+
+      letter.classList.add(
+        "opened"
+      );
+
+    },
+    500
+  );
+
+
+  createHearts();
+
+}
+
+
+/* =========================
+   สร้างหัวใจตอนเปิดจดหมาย
+========================= */
+
+function createHearts() {
+
+
+  const symbols = [
+    "♡",
+    "♥",
+    "♡",
+    "♥",
+    "♡"
+  ];
+
+
+  for (
+    let i = 0;
+    i < 14;
+    i++
+  ) {
+
+
+    const heart =
+      document.createElement(
+        "div"
+      );
+
+
+    heart.className =
+      "pop-heart";
+
+
+    heart.innerHTML =
+      symbols[
+        Math.floor(
+          Math.random() *
+          symbols.length
+        )
+      ];
+
+
+    heart.style.setProperty(
+      "--x",
+      (
+        Math.random() * 300 - 150
+      ) + "px"
+    );
+
+
+    heart.style.setProperty(
+      "--y",
+      (
+        Math.random() * -350 - 50
+      ) + "px"
+    );
+
+
+    heart.style.animationDelay =
+      (
+        Math.random() * .5
+      ) + "s";
+
+
+    document.body.appendChild(
+      heart
+    );
+
+
+    setTimeout(
+      function() {
+
+        heart.remove();
+
+      },
+      2500
+    );
+
+
+  }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
