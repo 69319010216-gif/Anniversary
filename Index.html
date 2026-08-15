@@ -1,0 +1,236 @@
+
+`<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Anniversary ♡</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, "Noto Sans Thai", sans-serif;
+  background: linear-gradient(135deg, #fff5f2, #f8dfda);
+  color: #59372e;
+}
+
+.container {
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+  padding: 30px 18px;
+}
+
+.card {
+  background: rgba(255, 250, 247, 0.96);
+  border-radius: 32px;
+  padding: 35px 22px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(100, 55, 40, 0.15);
+}
+
+.heart {
+  font-size: 45px;
+  color: #d98f88;
+}
+
+h1 {
+  margin: 5px 0 10px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(38px, 10vw, 58px);
+}
+
+.subtitle {
+  line-height: 1.9;
+  color: #806056;
+  margin-bottom: 25px;
+}
+
+.photos {
+  display: flex;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.photo {
+  flex: 1;
+  height: 210px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f0d5ce;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.counter {
+  background: #f8dfd8;
+  border-radius: 22px;
+  padding: 18px;
+  margin: 20px 0;
+  line-height: 1.8;
+}
+
+.counter strong {
+  font-size: 25px;
+}
+
+.links {
+  display: grid;
+  gap: 13px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #59372e;
+  background: #efbbb1;
+  font-weight: bold;
+  text-align: left;
+  transition: 0.2s;
+}
+
+.link:nth-child(even) {
+  background: #fff0eb;
+}
+
+.link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(100, 55, 40, 0.12);
+}
+
+.icon {
+  font-size: 25px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.link small {
+  display: block;
+  margin-top: 4px;
+  color: #8d685e;
+  font-weight: normal;
+}
+
+.footer {
+  margin-top: 28px;
+  color: #8d685e;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+@media (max-width: 500px) {
+  .photos {
+    gap: 8px;
+  }
+
+  .photo {
+    height: 160px;
+  }
+
+  .card {
+    padding: 28px 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <div class="heart">♡</div>
+
+    <h1>Happy Anniversary</h1>
+
+    <div class="subtitle">
+      ขอบคุณที่เข้ามาเป็นความสุข<br>
+      และเป็นคนโปรดในทุก ๆ วันของกันและกัน
+    </div>
+
+    <!-- รูปของเรา -->
+    <div class="photos">
+
+      <div class="photo">
+        <img src="photo1.jpg" alt="รูปของเรา">
+      </div>
+
+      <div class="photo">
+        <img src="photo2.jpg" alt="รูปของเรา">
+      </div>
+
+    </div>
+
+    <div class="counter">
+      เราอยู่ด้วยกันมาแล้ว<br>
+      <strong>∞ ความทรงจำ</strong>
+    </div>
+
+    <!-- เมนู -->
+    <div class="links">
+
+      <a class="link" href="https://photos.google.com/" target="_blank">
+        <span class="icon">♡</span>
+        <span>
+          ความทรงจำของเรา
+          <small>รวมรูปและโมเมนต์ที่แสนพิเศษ</small>
+        </span>
+      </a>
+
+      <a class="link" href="https://www.youtube.com/" target="_blank">
+        <span class="icon">▶</span>
+        <span>
+          วิดีโอของเรา
+          <small>รวมโมเมนต์น่ารัก ๆ ของเรา</small>
+        </span>
+      </a>
+
+      <a class="link" href="letter.html">
+        <span class="icon">✉</span>
+        <span>
+          จดหมายถึงเธอ
+          <small>ข้อความพิเศษจากใจถึงเธอ</small>
+        </span>
+      </a>
+
+      <a class="link" href="https://maps.google.com/" target="_blank">
+        <span class="icon">♡</span>
+        <span>
+          เดทครั้งต่อไป
+          <small>สถานที่ที่เราอยากไปด้วยกัน</small>
+        </span>
+      </a>
+
+      <a class="link" href="https://open.spotify.com/" target="_blank">
+        <span class="icon">♫</span>
+        <span>
+          เพลงของเรา
+          <small>เพลงที่ทำให้เรานึกถึงกัน</small>
+        </span>
+      </a>
+
+    </div>
+
+    <div class="footer">
+      ♡ ขอบคุณที่ทำให้ทุกวันของเราเป็นวันที่ดีที่สุดเสมอ ♡
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>`
