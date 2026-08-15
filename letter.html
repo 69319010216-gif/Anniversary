@@ -197,7 +197,7 @@ body {
 
   width: 340px;
 
-  height: 250px;
+  height: 420px;
 
   display: flex;
 
@@ -258,7 +258,9 @@ body {
 }
 
 
-/* กระดาษด้านใน */
+/* =========================
+   กระดาษจดหมาย
+========================= */
 
 .letter {
 
@@ -275,6 +277,10 @@ body {
   width: 265px;
 
   min-height: 230px;
+
+  max-height: 65vh;
+
+  overflow-y: auto;
 
   background: #fffaf5;
 
@@ -294,10 +300,16 @@ body {
     transform 1s ease,
     opacity .7s ease;
 
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    #d98f88
+    #fff0eb;
+
 }
 
 
-/* จดหมายขยับเบา ๆ */
+/* จดหมายเปิดแล้ว */
 
 .letter.opened {
 
@@ -305,7 +317,7 @@ body {
 
   transform:
     translateX(-50%)
-    translateY(-135px);
+    translateY(-80px);
 
   animation:
     letterFloat
@@ -315,13 +327,15 @@ body {
 }
 
 
+/* จดหมายขยับเบา ๆ */
+
 @keyframes letterFloat {
 
   0% {
 
     transform:
       translateX(-50%)
-      translateY(-135px)
+      translateY(-80px)
       rotate(-1deg);
 
   }
@@ -330,7 +344,7 @@ body {
 
     transform:
       translateX(-50%)
-      translateY(-140px)
+      translateY(-85px)
       rotate(1deg);
 
   }
@@ -339,7 +353,7 @@ body {
 
     transform:
       translateX(-50%)
-      translateY(-135px)
+      translateY(-80px)
       rotate(-1deg);
 
   }
@@ -347,33 +361,44 @@ body {
 }
 
 
-/* ข้อความ */
+/* =========================
+   ข้อความ
+========================= */
 
 .letter h2 {
 
-  margin: 0 0 15px;
+  margin:
+    0 0 15px;
 
-  font-family: Georgia, serif;
+  font-family:
+    Georgia, serif;
 
-  font-style: italic;
+  font-style:
+    italic;
 
-  color: #c97972;
+  color:
+    #c97972;
 
 }
 
 
 .letter p {
 
-  margin: 8px 0;
+  margin:
+    8px 0;
 
-  line-height: 1.8;
+  line-height:
+    1.8;
 
-  font-size: 14px;
+  font-size:
+    14px;
 
 }
 
 
-/* สามเหลี่ยมหน้าซอง */
+/* =========================
+   สามเหลี่ยมหน้าซอง
+========================= */
 
 .flap {
 
@@ -396,7 +421,8 @@ body {
   border-top:
     100px solid #d98f88;
 
-  transform-origin: top center;
+  transform-origin:
+    top center;
 
   z-index: 5;
 
@@ -418,7 +444,9 @@ body {
 }
 
 
-/* หัวใจตรงกลาง */
+/* =========================
+   หัวใจตรงกลางซอง
+========================= */
 
 .seal {
 
@@ -469,7 +497,7 @@ body {
 
 
 /* =========================
-   ปุ่ม
+   ข้อความใต้ซอง
 ========================= */
 
 .open-text {
@@ -482,6 +510,10 @@ body {
 
 }
 
+
+/* =========================
+   ปุ่มกลับ
+========================= */
 
 .back {
 
@@ -509,7 +541,7 @@ body {
 
 
 /* =========================
-   เอฟเฟกต์หัวใจตอนเปิด
+   หัวใจตอนเปิดจดหมาย
 ========================= */
 
 .pop-heart {
@@ -574,9 +606,23 @@ body {
 
 @media (max-width: 500px) {
 
+  .page {
+
+    padding: 15px;
+
+  }
+
+  .title {
+
+    margin-bottom: 15px;
+
+  }
+
   .envelope-area {
 
     width: 320px;
+
+    height: 400px;
 
   }
 
@@ -604,6 +650,26 @@ body {
   .letter {
 
     width: 245px;
+
+    max-height: 60vh;
+
+    padding:
+      22px 18px;
+
+  }
+
+}
+
+
+/* =========================
+   iPad / หน้าจอสูง
+========================= */
+
+@media (min-width: 501px) and (min-height: 700px) {
+
+  .letter {
+
+    max-height: 55vh;
 
   }
 
