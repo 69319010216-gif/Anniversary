@@ -41,9 +41,9 @@ body {
 }
 
 
-/* -------------------------
-   พื้นหลังหัวใจ
-------------------------- */
+/* =========================
+   พื้นหลังหัวใจลอย
+========================= */
 
 .hearts {
 
@@ -114,9 +114,67 @@ body {
 }
 
 
-/* -------------------------
+/* =========================
+   ปุ่มเพลง
+========================= */
+
+#musicButton {
+
+  position: fixed;
+
+  top: 20px;
+
+  right: 20px;
+
+  z-index: 100;
+
+  padding: 12px 18px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,0.88);
+
+  color: #59372e;
+
+  font-weight: bold;
+
+  font-size: 14px;
+
+  box-shadow:
+    0 8px 20px
+    rgba(90,50,40,0.15);
+
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+
+  transition: 0.2s;
+
+}
+
+
+#musicButton:hover {
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+#musicButton:active {
+
+  transform:
+    scale(0.95);
+
+}
+
+
+/* =========================
    หน้า
-------------------------- */
+========================= */
 
 .page {
 
@@ -180,9 +238,9 @@ body {
 }
 
 
-/* -------------------------
+/* =========================
    รูปภาพ
-------------------------- */
+========================= */
 
 .gallery {
 
@@ -205,7 +263,8 @@ body {
 
   background: white;
 
-  padding: 10px 10px 35px;
+  padding:
+    10px 10px 35px;
 
   border-radius: 6px;
 
@@ -235,7 +294,9 @@ body {
 }
 
 
-/* รูปแต่ละใบ */
+/* =========================
+   รูปทั้ง 8 ใบ
+========================= */
 
 .photo:nth-child(1) {
   animation-delay: 0s;
@@ -269,6 +330,10 @@ body {
   animation-delay: 28s;
 }
 
+
+/* =========================
+   รูปเฟด + หมุน
+========================= */
 
 @keyframes photoLoop {
 
@@ -335,19 +400,21 @@ body {
 }
 
 
-/* -------------------------
-   ปุ่มกลับ
-------------------------- */
+/* =========================
+   ปุ่มกลับหน้าหลัก
+========================= */
 
 .back {
 
   margin-top: 28px;
 
-  padding: 14px 24px;
+  padding:
+    14px 24px;
 
   border-radius: 30px;
 
-  background: rgba(255,255,255,0.75);
+  background:
+    rgba(255,255,255,0.75);
 
   color: #59372e;
 
@@ -372,7 +439,9 @@ body {
 }
 
 
-/* มือถือ */
+/* =========================
+   มือถือ / iPad
+========================= */
 
 @media (max-width: 500px) {
 
@@ -381,6 +450,17 @@ body {
     width: 245px;
 
     height: 310px;
+
+  }
+
+  #musicButton {
+
+    top: 15px;
+
+    right: 15px;
+
+    padding:
+      10px 14px;
 
   }
 
@@ -394,76 +474,190 @@ body {
 <body>
 
 
-<!-- หัวใจลอย -->
+<!-- =========================
+     เพลงแบ็กกราวด์
+========================= -->
+
+<audio
+  id="bgMusic"
+  loop>
+
+  <source
+    src="our-song.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<!-- ปุ่มเปิด / ปิดเพลง -->
+
+<button
+  id="musicButton"
+  onclick="toggleMusic()">
+
+  ♫ เปิดเพลง
+
+</button>
+
+
+<!-- =========================
+     หัวใจลอย
+========================= -->
 
 <div class="hearts">
 
-  <div class="heart"
-       style="left:5%;font-size:22px;animation-duration:9s;">
-       ♡
+
+  <div
+    class="heart"
+    style="
+      left:5%;
+      font-size:22px;
+      animation-duration:9s;
+    ">
+
+    ♡
+
   </div>
 
-  <div class="heart"
-       style="left:15%;font-size:35px;animation-duration:12s;animation-delay:2s;">
-       ♥
+
+  <div
+    class="heart"
+    style="
+      left:15%;
+      font-size:35px;
+      animation-duration:12s;
+      animation-delay:2s;
+    ">
+
+    ♥
+
   </div>
 
-  <div class="heart"
-       style="left:28%;font-size:18px;animation-duration:10s;animation-delay:5s;">
-       ♡
+
+  <div
+    class="heart"
+    style="
+      left:28%;
+      font-size:18px;
+      animation-duration:10s;
+      animation-delay:5s;
+    ">
+
+    ♡
+
   </div>
 
-  <div class="heart"
-       style="left:40%;font-size:30px;animation-duration:14s;animation-delay:1s;">
-       ♥
+
+  <div
+    class="heart"
+    style="
+      left:40%;
+      font-size:30px;
+      animation-duration:14s;
+      animation-delay:1s;
+    ">
+
+    ♥
+
   </div>
 
-  <div class="heart"
-       style="left:55%;font-size:20px;animation-duration:11s;animation-delay:4s;">
-       ♡
+
+  <div
+    class="heart"
+    style="
+      left:55%;
+      font-size:20px;
+      animation-duration:11s;
+      animation-delay:4s;
+    ">
+
+    ♡
+
   </div>
 
-  <div class="heart"
-       style="left:68%;font-size:38px;animation-duration:13s;animation-delay:3s;">
-       ♥
+
+  <div
+    class="heart"
+    style="
+      left:68%;
+      font-size:38px;
+      animation-duration:13s;
+      animation-delay:3s;
+    ">
+
+    ♥
+
   </div>
 
-  <div class="heart"
-       style="left:80%;font-size:24px;animation-duration:10s;animation-delay:6s;">
-       ♡
+
+  <div
+    class="heart"
+    style="
+      left:80%;
+      font-size:24px;
+      animation-duration:10s;
+      animation-delay:6s;
+    ">
+
+    ♡
+
   </div>
 
-  <div class="heart"
-       style="left:92%;font-size:32px;animation-duration:15s;animation-delay:2s;">
-       ♥
+
+  <div
+    class="heart"
+    style="
+      left:92%;
+      font-size:32px;
+      animation-duration:15s;
+      animation-delay:2s;
+    ">
+
+    ♥
+
   </div>
+
 
 </div>
 
 
-<!-- เนื้อหา -->
+<!-- =========================
+     เนื้อหา
+========================= -->
 
 <div class="page">
 
 
   <div class="title">
 
+
     <div class="heart">
+
       ♡
+
     </div>
 
+
     <h1>
+
       ความทรงจำของเรา
+
     </h1>
 
+
     <p>
+
       ทุกภาพมีเรื่องราวของเราอยู่ในนั้น
+
     </p>
+
 
   </div>
 
 
-  <!-- รูป -->
+  <!-- =========================
+       รูป 1-8
+  ========================= -->
 
   <div class="gallery">
 
@@ -543,6 +737,10 @@ body {
   </div>
 
 
+  <!-- =========================
+       กลับหน้าหลัก
+  ========================= -->
+
   <a
     class="back"
     href="index.html">
@@ -555,5 +753,64 @@ body {
 </div>
 
 
+<!-- =========================
+     ระบบเพลง
+========================= -->
+
+<script>
+
+
+const music =
+  document.getElementById(
+    "bgMusic"
+  );
+
+
+const button =
+  document.getElementById(
+    "musicButton"
+  );
+
+
+function toggleMusic() {
+
+
+  if (music.paused) {
+
+
+    music.play()
+      .then(() => {
+
+        button.innerHTML =
+          "♫ กำลังเล่น";
+
+      })
+      .catch(() => {
+
+        button.innerHTML =
+          "♫ แตะเพื่อเล่น";
+
+      });
+
+
+  } else {
+
+
+    music.pause();
+
+
+    button.innerHTML =
+      "♫ เปิดเพลง";
+
+
+  }
+
+}
+
+
+</script>
+
+
 </body>
+
 </html>
